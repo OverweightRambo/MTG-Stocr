@@ -1,0 +1,40 @@
+.headerWrapper {
+    position:ab;
+    width: 100%;
+    height: 90px;
+    background-color: black;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    .headerIcon {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    .header{
+        width: 100%;
+        align-self: flex-end;
+        display: flex;
+        flex-direction: row;
+        color: #858109;
+        .leftSide{
+            width: 80%;
+            .massEntry{
+                margin-left: 12px;
+            }
+            .singleCard{
+                margin-left: 12px
+            }
+        }
+        .rightSide{
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            width: 20%;
+            padding-right: 24px;
+        }
+    }
+}
+
+.propsWrapper{
+    padding-top: 90px;
+}
