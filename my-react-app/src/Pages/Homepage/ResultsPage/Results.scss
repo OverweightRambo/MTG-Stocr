@@ -1,56 +1,107 @@
 Image .storeWrapper{
     display: flex;
     flex-direction: column;
-    background-color: #d12424;
-    color: black;
+    //background-color: #d12424;
+    //color: black;
     max-width: 800px;
     height: 100%;
     margin: 8px;
     .storeName{
-        font-size: 24px;
+        font-size: 36px;
         font-weight: 600;
-        margin-left: 8px;
+        margin-left: 16px;
     }
  
 }
- 
-.cardWrapper{
-    padding: 8px;
+.fullResults{
+    margin-top: 8px;
     display: flex;
     flex-direction: row;
-    background-color: gray;
-    color: white;
-    margin: 8px;
-    height: 100%;
- 
-    .leftSide{
-        display: flex;
-        flex-direction: column;
-        .cardName{
+    .cardList{
+        width: 280px;
+        background-color: white;
+        margin-left: 24px;
+        margin-top: 24px;
+        height: 100%;
+        min-height: 360px;
+        .cardNamePrice{
+            width: 100%;
             color: black;
-            font-weight: 600;
-            margin-bottom: 4px;  
-            width: 200px;
-        }
-        .cardImage{
-            border-radius: 8px;
-            height: 240px;
-            width: 180px;
+            .storeWrapper{
+                margin: 8px;
+                .storeName{
+                    font-weight: 800;
+                    padding-bottom: 4px;
+                    padding-top: 4px
+                }
+                .cardListInformation{
+                    padding: 2px;
+                    box-shadow: 0 0 10px rgba(0,0,0, .4);
+                    --border: 1px solid black;
+                    border-radius: 5px;
+                    display:  flex;
+                    justify-content: space-between;
+                    margin-top: 6px;
+                    .cardName{
+
+                    }
+                    .cardPrice{
+
+                    }
+                }
+            }
         }
     }
- 
-    .rightSide{
-        display: flex;
-        flex-direction: row;
-        margin-top: 25px;
-        justify-content: space-between;
-        .cardDescription{
-            width: 300px;
-        }
-        .cardValue{
-            width: 250px;
-            background-color: navy;
+    .fullCardDetails{
+        margin-left: 15px;
+        .cardWrapper{
+            padding: 8px;
+            display: flex;
+            flex-direction: row;
+            background-color: #3B374A;
             color: white;
+            border: 1px solid red;
+            border-radius: 5px;
+            margin: 8px;
+            height: 100%;
+            max-width: 800px;
+            width: 100%;
+         
+            .leftSide{
+                display: flex;
+                flex-direction: column;
+                .cardName{
+                    color: black;
+                    font-weight: 600;
+                    margin-bottom: 4px;  
+                    width: 200px;
+                }
+                .cardImage{
+                    border-radius: 8px;
+                    height: 240px;
+                    width: 180px;
+                }
+            }
+         
+            .rightSide{
+                display: flex;
+                flex-direction: row;
+                margin-top: 25px;
+                justify-content: space-between;
+                .cardDescription{
+                    margin-right: 2px;
+                    width: 280px;
+                }
+                .cardValue{
+                    width: 250px;
+                    color: white;
+                    border: 1px solid red;
+                    padding-left: 4px;
+                    border-radius: 5px;
+                    height: 100%;
+                }
+            }
         }
     }
 }
+

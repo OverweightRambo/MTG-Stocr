@@ -8,12 +8,12 @@ export interface IStoreInformation {
     storeName:string, cardsFromStore: Array<ICardsFromStore>
 }
 
-const CardResults = (storeArray: any) => {
+const CardFullDisplay = (storeArray: any) => {
 
-    console.log('this is the value of storeArray', storeArray)
+    console.log('this is the value of storeArr', storeArray)
     return (
         <div>This is inside of results</div>
     )
 }
 
-export default CardResults
+export default CardFullDisplay
