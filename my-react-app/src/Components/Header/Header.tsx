@@ -1,23 +1,31 @@
 import './header.scss'
 import STOCRIcon from '../../assets/STOCRIcon.svg'
+import { useNavigate } from 'react-router-dom';
 
 interface IHeaderProps {
     children: JSX.Element
 }
 
 const Header = (props: IHeaderProps) => {
+    const navigate = useNavigate()
+
+    const navigator = (path: string) => {
+        console.log("the onclick is being called")
+        navigate(path)
+    }
+
+
     return (
         <>
         <div className='headerWrapper'>
-            <div className='headerIcon'>
-                <img src={STOCRIcon} alt="STOCR Icon" />
+            <div className='headerIcon' onClick={() => {navigator('/')}}>
+                <img src={STOCRIcon} alt="STOCR Icon"/>
             </div>
             <div className='header'>
                 <div className='leftSide'>
-                    <span className='massEntry'>MASS ENTRY</span>
-                    <span className='singleCard'>SINGLE CARD</span>
+                    <span className='massEntry' onClick={() => {navigator('/cardInput')}}>CARD INPUT</span>
                 </div>
-                <div className='rightSide'>
+                <div className='rightSide' onClick={() => {navigator('/user')}}>
                     USER
                 </div>
             </div>
