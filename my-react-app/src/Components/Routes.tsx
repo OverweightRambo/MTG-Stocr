@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Homepage from "../Pages/Homepage/Homepage"
 import Results from "../Pages/ResultsPage/Results"
-import CardInput from "../Pages/CardInput/CardInput"
+import CardInput from "./CardInput/CardInput"
 import UserPage from "../Pages/UserPage/UserPage"
 
 const RouterHandler = () => {
