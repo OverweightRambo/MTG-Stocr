@@ -1,4 +1,4 @@
-import CardResults from "../../../Components/CardResultDisplay/CardResults"
+import CardResults from "../../Components/CardResultDisplay/CardResults"
 import { useState } from "react"
 import './Results.scss'
 interface ICardsFromStore {
