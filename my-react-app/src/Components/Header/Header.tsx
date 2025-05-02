@@ -25,8 +25,9 @@ const Header = (props: IHeaderProps) => {
                 <div className='leftSide'>
                     <span className='massEntry' onClick={() => {navigator('/cardInput')}}>CARD INPUT</span>
                 </div>
-                <div className='rightSide' onClick={() => {navigator('/user')}}>
-                    USER
+                <div className='rightSide' >
+                    <div className='logIn'>Log In</div>
+                    <div className='signUp' onClick={() => {navigator('/user')}}>Sign Up</div>
                 </div>
             </div>
         </div>

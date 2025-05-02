@@ -1,29 +1,54 @@
 .homepageWrapper{
-    background-color: white;
+    background: linear-gradient(
+        to bottom right,
+        var(--color-background),
+        var(--color-background-secondary),
+        var(--color-background)
+    );
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 1600px;
     width: 100%;
     .websiteDescription{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         padding-top: 16px;
         font-size: 64px;
-        color: black;
-        .websiteDescriptionSubText{
-            font-size: 32px;
-            color: #403c3c;
+        color: var(--color-text);
+        .veridexHighlight{
+            background: linear-gradient(to right, var(--color-text-gradient1), var(--color-text-gradient2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            
         }
+    }
+    .websiteDescriptionSubText{
+        font-size: 32px;
+        color: var(--color-text-secondary);
+            // background: linear-gradient(to right, #a78bfa, #93c5fd);
+            // -webkit-background-clip: text;
+            // background-clip: text;
+            // color: transparent;
+          
     }
     .getStartedButton{
         margin-top: 8px;
         margin-bottom: 8px;
         font-size: 24px;
         padding: 2px;
-        background-color: #0d4004;
+        background: linear-gradient(to bottom right,
+        var(--color-primary),
+        var(--color-secondary) );
         border: 1px solid black;
         border-radius: 5px;
         cursor: pointer;
+        &:hover {
+            background: linear-gradient(to bottom right,
+            var(--color-primary-hover),
+            var(--color-secondary-hover) );
+          }
     }
 }
