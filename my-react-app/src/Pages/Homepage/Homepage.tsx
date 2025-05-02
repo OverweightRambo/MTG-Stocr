@@ -11,10 +11,11 @@ const Homepage = () => {
         <>
         <div className='homepageWrapper'>
             <div className='websiteDescription'>
-                Welcome To STOCR!
-                <div className='websiteDescriptionSubText'>
-                    The Easiest Way To Shop Local and Find Great Prices!
-                </div>
+            Welcome To 
+                <div className='veridexHighlight'>&nbsp;Veridex</div>
+            </div>
+            <div className='websiteDescriptionSubText gradientText'>
+                The Easiest Way To Shop Locally and Find Great Prices!
             </div>
             <div className='getStartedButton' onClick={() => navigator('/cardInput')}>
                     Get Started!

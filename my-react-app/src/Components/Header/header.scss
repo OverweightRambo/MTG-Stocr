@@ -2,10 +2,12 @@
     position:ab;
     width: 100%;
     height: 90px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--color-border);
     position: fixed;
     display: flex;
     flex-direction: row;
+    backdrop-filter: blur(10px);
     .headerIcon {
         cursor: pointer;
         margin-left: 8px;
@@ -16,7 +18,9 @@
         align-self: flex-end;
         display: flex;
         flex-direction: row;
-        color: #858109;
+        color: var(--color-text);
+        justify-content: space-between;
+        margin-bottom: 4px;
         .leftSide{
             width: 80%;
             .massEntry{
@@ -26,14 +30,44 @@
             .singleCard{
                 margin-left: 12px
             }
+            &:hover {
+                background: linear-gradient(to right, var(--color-text-gradient1), var(--color-text-gradient2));
+                background-clip: text;
+                color: transparent;
+            }
         }
         .rightSide{
-            cursor: pointer;
             display: flex;
             flex-direction: row;
-            justify-content: right;
-            width: 20%;
-            padding-right: 24px;
+            justify-content: space-between;
+            width: 130px;
+            margin-right: 12px;
+            .logIn{
+                width: 50px;
+                cursor: pointer;
+                &:hover {
+                    background: linear-gradient(to right, var(--color-text-gradient1), var(--color-text-gradient2));
+                    background-clip: text;
+                    color: transparent;
+                }
+            }
+            .signUp{
+                display: flex;
+                justify-content: center;
+                width: 70px;
+                background: linear-gradient(to bottom right,     
+                    var(--color-primary),
+                    var(--color-secondary) );
+                border: 1px solid black;
+                border-radius: 5px;
+                cursor: pointer;
+                &:hover {
+                    background: linear-gradient(to bottom right,
+                    var(--color-primary-hover),
+                    var(--color-secondary-hover) );
+                  }
+            }
+
         }
     }
 }
