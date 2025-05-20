@@ -26,14 +26,11 @@
             .massEntry{
                 cursor: pointer;
                 margin-left: 12px;
-            }
-            .singleCard{
-                margin-left: 12px
-            }
-            &:hover {
-                background: linear-gradient(to right, var(--color-text-gradient1), var(--color-text-gradient2));
-                background-clip: text;
-                color: transparent;
+                &:hover {
+                    background: linear-gradient(to right, var(--color-text-gradient1), var(--color-text-gradient2));
+                    background-clip: text;
+                    color: transparent;
+                }
             }
         }
         .rightSide{
