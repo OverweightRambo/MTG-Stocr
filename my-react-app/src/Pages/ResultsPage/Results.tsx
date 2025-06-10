@@ -1,6 +1,9 @@
-import CardResults from "../../Components/CardResultDisplay/CardResults"
-import { useState } from "react"
+//import CardResults from "../../../Components/CardResultDisplay/CardResults"
+import { useEffect, useState } from "react"
 import './Results.scss'
+import {useCardContextState, IMockCardList} from '../../Context/cardContext'
+import { useLocation } from "react-router-dom"
+
 interface ICardsFromStore {
     cardID: number, cardName: string, cardDescription: string, cardImage: any, version: string,
     cardValue: number
@@ -11,9 +14,21 @@ interface IStoreInformation {
 }
 
 const Results = () => {
+    // const [storeCard, setStoreCard] = useState<Array<IStoreInformation>>([])
+    const [cardList, setCardList] = useState<Array<any>>([])
+    const location = useLocation()
 
-    const [storeCard, setStoreCard] = useState<Array<IStoreInformation>>([
-        {storeName: "darksideGames", storeID: 0, cardsFromStore:[{
+    useEffect(() => {
+        setCardList(location.state)
+        console.log("this is the value of location.state", location.state)
+    },[])
+
+    console.log('this is the value of cardList', cardList)
+
+    // console.log("this is the value of storeCared from context in results", storeCard)
+
+    console.log("this is the value of storeCard in results")
+    const [storeCard, setStoreCard] = useState<Array<IStoreInformation>>([{storeName: "darksideGames", storeID: 0, cardsFromStore:[{
             cardID: 0, cardName: "the one ring", cardDescription: "the one ring description",
             cardImage: "https://i.ebayimg.com/images/g/bd4AAOSwsGlmtCIn/s-l400.jpg", version: "version1",
             cardValue: 25
@@ -47,10 +62,12 @@ const Results = () => {
             cardValue: 29
         },
         ]}
-        ])
+    ])
+        
         
     return (
         <>
+        hello!
         <div className="fullResults">
             <div className="cardList">
                 <div className="cardNamePrice">           

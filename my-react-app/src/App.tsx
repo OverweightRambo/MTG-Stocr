@@ -1,14 +1,17 @@
 import './App.scss'
 import RouterHandler from './Components/Routes'
 import Header from './Components/Header/Header'
+import CardStateContextProvider from './Context/cardContext'
 
 function App() {
 
   return (
     <>
-      <Header>
-        <RouterHandler/>
-      </Header>
+      <CardStateContextProvider>
+        <Header>
+          <RouterHandler/>
+        </Header>
+      </CardStateContextProvider>
     </>
   )
 }
