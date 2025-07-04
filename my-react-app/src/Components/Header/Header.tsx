@@ -1,6 +1,7 @@
 import './header.scss'
 import STOCRIcon from '../../assets/STOCRIcon.svg'
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 interface IHeaderProps {
     children: JSX.Element
@@ -14,6 +15,8 @@ const Header = (props: IHeaderProps) => {
         navigate(path)
     }
 
+    const [loggedIn, setLoggedIn] = useState<boolean>(false)
+
     return (
         <>
         <div className='headerWrapper'>
@@ -25,7 +28,9 @@ const Header = (props: IHeaderProps) => {
                     <span className='massEntry' onClick={() => {navigator('/cardInput')}}>CARD INPUT</span>
                 </div>
                 <div className='rightSide' onClick={() => {navigator('/user')}}>
-                    USER
+                    <div className='logIn'>
+                        {loggedIn? "User" : "Login"}
+                    </div>
                 </div>
             </div>
         </div>
