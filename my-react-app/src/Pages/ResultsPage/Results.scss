@@ -13,6 +13,9 @@ Image .storeWrapper{
     }
  
 }
+.cartDetails{
+    margin: 2px;
+}
 .fullResults{
     margin-top: 8px;
     display: flex;
@@ -43,7 +46,7 @@ Image .storeWrapper{
                     justify-content: space-between;
                     margin-top: 6px;
                     .cardName{
-
+                        
                     }
                     .cardPrice{
 
@@ -54,51 +57,64 @@ Image .storeWrapper{
     }
     .fullCardDetails{
         margin-left: 15px;
+        height: 150px;
+        width: 80%;
         .cardWrapper{
             padding: 8px;
             display: flex;
             flex-direction: row;
             background-color: #3B374A;
             color: white;
-            border: 1px solid red;
-            border-radius: 5px;
             margin: 8px;
             height: 100%;
             max-width: 800px;
             width: 100%;
+            justify-content: space-between;
          
             .leftSide{
                 display: flex;
                 flex-direction: column;
                 .cardName{
-                    color: black;
+                    color: white;
                     font-weight: 600;
                     margin-bottom: 4px;  
                     width: 200px;
                 }
                 .cardImage{
                     border-radius: 8px;
-                    height: 240px;
-                    width: 180px;
+                    height: 120px;
+                    width: 90px;
                 }
             }
          
             .rightSide{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 margin-top: 25px;
                 justify-content: space-between;
-                .cardDescription{
-                    margin-right: 2px;
-                    width: 280px;
-                }
-                .cardValue{
+                .cardAvailabilityDetails{
                     width: 250px;
                     color: white;
-                    border: 1px solid red;
+
                     padding-left: 4px;
                     border-radius: 5px;
-                    height: 100%;
+                    height: 12px;
+                }
+                .removeCard{
+                    display: flex;
+                    justify-content: right;
+                    align-items: center;
+                    margin: 8px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    .trashIcon{
+
+                    }
+                    .removeText{
+                        margin-left: 4px;
+                        color: white;
+                    }
                 }
             }
         }
