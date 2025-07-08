@@ -11,14 +11,13 @@ interface ICardObjects {
 
 const CardInput = () => {
     const [cardList, setCardList] = useState<string>('')
-    //const [splitRows, setSplitRows] = useState<Array<any>>()
     const [errorState, setErrorState] = useState<Boolean>(false)
     const [errorMessage, setErrorMessage] = useState<Array<any>>([])
     const [errorLines, setErrorLines] = useState<Array<any>>([]) 
     const [arrayOfCardObjects, setArrayOfCardObjects] = useState<Array<ICardObjects>>([])
     const [apiResponse, setApiResponse] = useState<any>()
     const [loading, setLoading] = useState<boolean>(false)
-    
+
     const navigate = useNavigate()
 
     const postData = async () => {
@@ -33,6 +32,11 @@ const CardInput = () => {
           console.error('Error posting data:', error);
         }
       };
+
+    const errorHandling = () => {
+        setErrorMessage([])
+        setErrorState(false)
+    }
 
     const handleChange = (e: any) => {
         let newValue = e.target.value
@@ -67,14 +71,15 @@ const CardInput = () => {
       
       const splitCardValues = (cardList: string) => {
         const splitLines = cardList.split('\n');
-        const filteredLines = splitLines
-          .map(line => line.trim())
-          .filter(line => line !== '');
-      
+        const filteredLines = splitLines.map(line => line.trim()).filter(line => line !== '');
         const parsed = filteredLines.map(parseLine); // each line becomes ParsedCard
-        
-        // Now parsed is already an array of ParsedCard, no need to map again
-        setArrayOfCardObjects(parsed);
+        if(parsed.length === 0){
+            setErrorState(true)
+            setErrorMessage(['Please input values before submitting'])
+        } else {
+            // Now parsed is already an array of ParsedCard, no need to map again
+            setArrayOfCardObjects(parsed);
+        }
       };
 
     useEffect (() => {
@@ -98,7 +103,7 @@ const CardInput = () => {
                 </div>
             }
             <textarea placeholder= 'Input your cards here!&#10;Urza Saga 3&#10;Mountain 4 FOIL&#10;The One Ring 2 FOIL'
-            className='cardInputStyle' name="text1"  value={cardList} onChange={handleChange} id="">
+            className='cardInputStyle' name="text1"  value={cardList} onChange={handleChange} id="" onBlur={errorHandling}>
             </textarea>
             <button onClick={() => splitCardValues(cardList)}>submit list</button>
         </div>
