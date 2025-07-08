@@ -1,10 +1,12 @@
-import { useEffect, useState, useContext, Suspense } from 'react'
+import { useEffect, useState } from 'react'
 import './CardInput.scss'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 interface ICardObjects {
     name: string
+    quantity: number
+    foil: boolean
 }
 
 const CardInput = () => {
@@ -12,12 +14,11 @@ const CardInput = () => {
     //const [splitRows, setSplitRows] = useState<Array<any>>()
     const [errorState, setErrorState] = useState<Boolean>(false)
     const [errorMessage, setErrorMessage] = useState<Array<any>>([])
-    const [errorLines, setErrorLines] = useState<Array<any>>([])
+    const [errorLines, setErrorLines] = useState<Array<any>>([]) 
     const [arrayOfCardObjects, setArrayOfCardObjects] = useState<Array<ICardObjects>>([])
     const [apiResponse, setApiResponse] = useState<any>()
     const [loading, setLoading] = useState<boolean>(false)
-
-
+    
     const navigate = useNavigate()
 
     const postData = async () => {
@@ -38,20 +39,49 @@ const CardInput = () => {
         setCardList(newValue)
       };
 
-    
-    const splitCardValues = (cardList: string) => {
-        const splitCards = (cardList.split('\n')) //splitting lines
-        const filteredArray = splitCards.filter(name => name !== '') //filtering empty lines
-        const mappedArray = filteredArray!.map((card: string) => ({ name: card})) //formatting lines into objects for api
-        setArrayOfCardObjects(mappedArray) //setting state for api
-    }
+
+      const parseLine = (line: string) => {
+        const words = line.trim().split(/\s+/);
+        let quantity = 1;
+        let foil = false;
+        const nameParts: string[] = [];
+      
+        for (const word of words) {
+          const lower = word.toLowerCase();
+      
+          if (lower === 'foil') {
+            foil = true;
+          } else if (!isNaN(Number(word))) {
+            quantity = parseInt(word, 10);
+          } else {
+            nameParts.push(word);
+          }
+        }
+      
+        return {
+          name: nameParts.join(' '),
+          quantity,
+          foil
+        };
+      };
+      
+      const splitCardValues = (cardList: string) => {
+        const splitLines = cardList.split('\n');
+        const filteredLines = splitLines
+          .map(line => line.trim())
+          .filter(line => line !== '');
+      
+        const parsed = filteredLines.map(parseLine); // each line becomes ParsedCard
+        
+        // Now parsed is already an array of ParsedCard, no need to map again
+        setArrayOfCardObjects(parsed);
+      };
 
     useEffect (() => {
         postData()
     }, [arrayOfCardObjects])
 
     useEffect (() => {
-        console.log("this is the value of apiResponse in useEffect", apiResponse)
         if(apiResponse != null){
             navigate('/results', {state: apiResponse})
         }
@@ -67,7 +97,7 @@ const CardInput = () => {
                     ))}
                 </div>
             }
-            <textarea placeholder= 'Input your cards here!&#10;Urza Saga 3&#10;Mountain 4 NM&#10;The One Ring 2 FOIL'
+            <textarea placeholder= 'Input your cards here!&#10;Urza Saga 3&#10;Mountain 4 FOIL&#10;The One Ring 2 FOIL'
             className='cardInputStyle' name="text1"  value={cardList} onChange={handleChange} id="">
             </textarea>
             <button onClick={() => splitCardValues(cardList)}>submit list</button>
