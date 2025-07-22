@@ -14,7 +14,11 @@ Image .storeWrapper{
  
 }
 .cartDetails{
-    margin: 2px;
+    font-size: var(--font-size-2xl);
+    margin-left: 24px;
+    .cartDetailsQuantity{
+    font-size: var(--font-size-lg);
+    }
 }
 .fullResults{
     margin-top: 8px;
@@ -57,7 +61,7 @@ Image .storeWrapper{
     }
     .fullCardDetails{
         margin-left: 15px;
-        height: 150px;
+        height: 145px;
         width: 80%;
         .cardWrapper{
             padding: 8px;
@@ -65,41 +69,87 @@ Image .storeWrapper{
             flex-direction: row;
             background-color: #3B374A;
             color: white;
-            margin: 8px;
+            margin-bottom: 8px;
             height: 100%;
             max-width: 800px;
             width: 100%;
             justify-content: space-between;
-         
+
             .leftSide{
                 display: flex;
-                flex-direction: column;
-                .cardName{
-                    color: white;
-                    font-weight: 600;
-                    margin-bottom: 4px;  
-                    width: 200px;
-                }
+                flex-direction: row;
                 .cardImage{
                     border-radius: 8px;
-                    height: 120px;
-                    width: 90px;
+                    height: 140px;
+                    width: 100px;
+                    margin-right: 8px;
                 }
+                .cardInformation{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .cardNameSetCon{
+                        .cardName{
+                            color: var(--color-text);
+                            font-size: 24px;
+                            font-weight: 600;
+                            // margin-bottom: 4px;
+                            // max-width: 400px;
+                        }
+                        .cardSet{
+                            font-size: 12px;
+                            font-weight: 400;
+                            color: var(--color-text-secondary);
+                        }
+                        .cardCondition{
+                            font-size: 12px;
+                            font-weight: 400;
+                            color: var(--color-text-secondary);
+                            .cardStock{
+                                color: var(--color-success);
+                            }
+                        }
+                    }
+                }
+                .cardQuantityWrapper{ 
+                    color: var(--color-text);
+                    display: flex;
+                    flex-direction: row;
+                    max-width: 80px;
+                    justify-content: space-around;
+                    margin-bottom: 4px;
+                    .plusIcon{
+                        border: 1px solid var(--color-background-gray);
+                        border-radius: 4px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                    .amountOfCard{
+                        display: flex;
+                        border: 1px solid var(--color-background-gray);
+                        border-radius: 4px;
+                        justify-content: center;
+                        align-items: center;
+                        width: 24px;
+                        height: 24px;
+                    }
+                    .minusIcon{
+                        border: 1px solid var(--color-background-gray);
+                        border-radius: 4px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                }
+ 
             }
          
             .rightSide{
                 display: flex;
                 flex-direction: column;
-                margin-top: 25px;
                 justify-content: space-between;
-                .cardAvailabilityDetails{
-                    width: 250px;
-                    color: white;
-
-                    padding-left: 4px;
-                    border-radius: 5px;
-                    height: 12px;
-                }
+                align-items: right;
                 .removeCard{
                     display: flex;
                     justify-content: right;
@@ -109,13 +159,14 @@ Image .storeWrapper{
                         cursor: pointer;
                     }
                     .trashIcon{
-
+                        
                     }
                     .removeText{
                         margin-left: 4px;
                         color: white;
                     }
                 }
+                
             }
         }
     }
